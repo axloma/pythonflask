@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+
+    <title>market</title>
+</head>
+<body>
+<h1>market</h1>
+{%with msg = get_flashed_messages(with_categories=true)%}
+{% if msg %}
+  {% for mesg in msg %}
+    <p>{{ mesg }}</p>
+       {% endfor %}
+{% endif %}
+{% endwith %}
+<table>
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">owner</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for it in item  %}
+    <tr>
+        <td>{{it.id}}</td>
+        <td>{{it.name}}</td>
+        <td>{{it.owner}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+
+
+<style>
+
+html{
+
+    font-size: 30px;
+    color: rgb(245, 23, 152);
+    box-sizing:border-box;
+}
+
+h1{
+color:red;
+background-color:gray;
+}
+table {
+    width: 70%;
+    line-height: 15px;
+    color: black;
+    align-items: center;
+    border: 3px solid #eee;
+    left:15px;
+}
+td, th, tr, caption {
+    margin: 0;
+    text-align: start;
+    position: relative;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: 900;
+    border: 3px solid #eee;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1px;
+    color: gray;
+    background-color: white;
+    border-radius: 15rem;
+    width: 80px;
+    border-spacing:50px 30px;
+
+}
+body{
+background-color:green;
+}
+</style>
+
+</html>

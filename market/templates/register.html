@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+    <title>Title</title>
+</head>
+<body>
+  <h1>REGISTER </h1>
+{%with msg = get_flashed_messages(with_categories=true)%}
+{% if msg %}
+  {% for mesg in msg %}
+    <p>{{ mesg }}</p>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+<form method="POST">
+    {{form.hidden_tag()}}
+    {{form.username.label()}}
+    {{form.username(autocomplete ="off")}}
+    {{form.password.label()}}
+    {{form.password()}}
+    {{form.cpass.label}}
+    {{form.cpass}}
+    {{form.email.label}}
+    {{form.email}}
+    {{form.submit()}}
+</form>
+</body>
+</html>
